@@ -5,8 +5,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Data
@@ -17,7 +16,10 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
     private String description;
-    private Category category;
     private Double amount;
-    private Date date;
+    private LocalDate date;
+    @ManyToOne
+    @JoinColumn(name = "budget_id")
+    private Budget budget;
+
 }
