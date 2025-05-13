@@ -1,6 +1,6 @@
 package app.com.server.service;
 
-import app.com.server.mapper.BugetMapper;
+import app.com.server.mapper.BudgetMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,7 +8,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class BudgetService {
 
-    @Autowired
 
-    private BugetMapper bugetMapper;
+    private BudgetMapper budgetMapper;
+
+    @Autowired
+    public BudgetService(BudgetMapper budgetMapper) {
+        this.budgetMapper = budgetMapper;
+    }
 }
